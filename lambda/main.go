@@ -1,1 +1,5 @@
-package lambda
+package main
+
+func main()  {
+
+}
