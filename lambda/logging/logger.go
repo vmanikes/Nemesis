@@ -10,7 +10,7 @@ var logger zap.Logger
 
 const loggerKey = "context-logger"
 
-func init()  {
+func init() {
 	var err error
 
 	l, err := zap.NewProduction()
