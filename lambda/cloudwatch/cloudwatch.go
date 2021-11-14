@@ -20,6 +20,7 @@ type Client struct {
 	cloudwatchClient *cloudwatch.Client
 }
 
+// New creates and initialized the cloudwatch client
 func New(ctx context.Context) (*Client, error) {
 	logger := logging.WithContext(ctx)
 
@@ -34,6 +35,8 @@ func New(ctx context.Context) (*Client, error) {
 	}, nil
 }
 
+// GetAlarmNames takes in the triggered alarm name and ARN. It returns the scale up and scale down alarm names along with
+// the action
 func (c *Client) GetAlarmNames(ctx context.Context, currentAlarmName, currentAlarmArn string) (
 	scaleUpAlarmName, scaleDownAlarmName, currentAction, lastAlarmActionTimestamp string, err error){
 
@@ -72,6 +75,7 @@ func (c *Client) GetAlarmNames(ctx context.Context, currentAlarmName, currentAla
 	return scaleUpAlarmName, scaleDownAlarmName, currentAction, lastAlarmActionTimestamp, nil
 }
 
+// SetAlarmState takes alarm name, state and reason and changes the state of the alarm
 func (c *Client) SetAlarmState(ctx context.Context, alarmName, state, reason string) error {
 	logger := logging.WithContext(ctx)
 
@@ -89,6 +93,7 @@ func (c *Client) SetAlarmState(ctx context.Context, alarmName, state, reason str
 	return nil
 }
 
+// UpdateAlarm updates the alarm metrics with the new shard count
 func (c *Client) UpdateAlarm(ctx context.Context, alarmName, streamName, snsARN string, isScaleDown bool, shardCount int) error {
 	logger := logging.WithContext(ctx)
 
@@ -249,6 +254,7 @@ func (c *Client) UpdateAlarm(ctx context.Context, alarmName, streamName, snsARN 
 	return nil
 }
 
+// GetAlarmArns takes in the scale up and scale dpwn alarm names and returns their arns
 func (c *Client) GetAlarmArns(ctx context.Context, scaleUpAlarmName, scaleDownAlarmName string) (string, string, error) {
 	logger := logging.WithContext(ctx)
 
@@ -278,6 +284,7 @@ func (c *Client) GetAlarmArns(ctx context.Context, scaleUpAlarmName, scaleDownAl
 	return scaleUpAlarmArn, scaleDownAlarmArn, nil
 }
 
+// TagAlarm tags the alarm with the scale action, complementary alarm and adds the last scale timestamp to the tag
 func (c *Client) TagAlarm(ctx context.Context, alarmArn, actionValue, alarmName, lastScaleTimestamp string) error {
 	logger := logging.WithContext(ctx)
 

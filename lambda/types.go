@@ -9,6 +9,7 @@ import (
 
 type AlarmInformation map[string]interface{}
 
+// GetAlarmName extracts the alarm name from the event payload
 func (a AlarmInformation) GetAlarmName(ctx context.Context) (string, error) {
 	logger := logging.WithContext(ctx)
 
@@ -23,6 +24,7 @@ func (a AlarmInformation) GetAlarmName(ctx context.Context) (string, error) {
 	return alarmName, nil
 }
 
+// GetAlarmArn extracts the alarm arn from the event payload
 func (a AlarmInformation) GetAlarmArn(ctx context.Context) (string, error) {
 	logger := logging.WithContext(ctx)
 
@@ -37,6 +39,7 @@ func (a AlarmInformation) GetAlarmArn(ctx context.Context) (string, error) {
 	return alarmArn, nil
 }
 
+// GetStateChangeTime extracts the state change time from event payload
 func (a AlarmInformation) GetStateChangeTime(ctx context.Context) (string, error) {
 	logger := logging.WithContext(ctx)
 
@@ -51,6 +54,7 @@ func (a AlarmInformation) GetStateChangeTime(ctx context.Context) (string, error
 	return stateChangeTime, nil
 }
 
+// GetStreamName extracts the stream name from the event payload
 func (a AlarmInformation) GetStreamName() (stream string) {
 	for _, metric := range a["Trigger"].(map[string]interface{})["Metrics"].([]interface{}) {
 		if metric.(map[string]interface{})["MetricStat"] != nil {

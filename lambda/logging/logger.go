@@ -28,6 +28,7 @@ func NewContext(ctx context.Context, fields ...zap.Field) context.Context {
 	return context.WithValue(ctx, loggerKey, *x)
 }
 
+// WithContext takes in a context and returns a logger
 func WithContext(ctx context.Context) zap.Logger {
 	if ctx == nil {
 		return logger
