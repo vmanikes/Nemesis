@@ -11,3 +11,10 @@ jobs:
               run: apk update && apk add make
             - name: Run tests
               run: make test
+            - name: Create Coverage Artifact
+              run: go tool cover -html=cover.out -o coverage.html
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v2
+              with:
+                name: Coverage
+                path: coverage.html
