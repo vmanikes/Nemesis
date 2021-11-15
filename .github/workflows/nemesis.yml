@@ -7,3 +7,5 @@ jobs:
               image: golang:alpine
         steps:
             - uses: actions/checkout@v2
+            - name: Install dependencies
+              runs: apk update && apk add make
