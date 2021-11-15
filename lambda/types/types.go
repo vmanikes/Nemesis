@@ -28,7 +28,7 @@ func (a AlarmInformation) GetAlarmName(ctx context.Context) (string, error) {
 func (a AlarmInformation) GetAlarmArn(ctx context.Context) (string, error) {
 	logger := logging.WithContext(ctx)
 
-	alarmArn, ok := a["AlarmName"].(string)
+	alarmArn, ok := a["AlarmArn"].(string)
 	if !ok {
 		err := errors.New("non string alarm arn")
 		logger.Error(err.Error(),
