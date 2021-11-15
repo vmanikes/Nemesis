@@ -8,4 +8,4 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Install dependencies
-              runs: apk update && apk add make
+              run: apk update && apk add make
