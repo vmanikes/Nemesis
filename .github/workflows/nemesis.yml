@@ -9,7 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Install dependencies
-              run: apk update && apk add make
+              run: apk update && apk add make zip
             - name: Run tests
               run: make test
             - name: Create Coverage Artifact
