@@ -12,13 +12,11 @@ jobs:
               run: apk update && apk add make zip
             - name: Run tests
               run: make test
-            - name: Create Coverage Artifact
-              run: go tool cover -html=lambda/cover/cover.out -o coverage.html
             - name: Upload Artifact
               uses: actions/upload-artifact@v2
               with:
                 name: Coverage
-                path: coverage.html
+                path: lambda/coverage.html
     build:
         needs: test
         runs-on: ubuntu-latest
