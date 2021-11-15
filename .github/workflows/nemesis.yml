@@ -9,3 +9,5 @@ jobs:
             - uses: actions/checkout@v2
             - name: Install dependencies
               run: apk update && apk add make
+            - name: Run tests
+              run: make test
