@@ -10,6 +10,7 @@ import (
 	"github.com/vmanikes/Nemesis/constants"
 	"github.com/vmanikes/Nemesis/kinesis"
 	"github.com/vmanikes/Nemesis/logging"
+	types2 "github.com/vmanikes/Nemesis/types"
 	"go.uber.org/zap"
 	"time"
 )
@@ -24,7 +25,7 @@ func handleRequest(ctx context.Context, snsEvent events.SNSEvent) {
 
 	snsRecord := snsEvent.Records[0].SNS
 
-	var alarmInformation AlarmInformation
+	var alarmInformation types2.AlarmInformation
 
 	err := json.Unmarshal([]byte(snsRecord.Message), &alarmInformation)
 	if err != nil {

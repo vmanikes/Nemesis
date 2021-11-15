@@ -9,7 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Install dependencies
-              run: apk update && apk add make
+              run: apk update && apk add make zip
             - name: Run tests
               run: make test
             - name: Create Coverage Artifact
@@ -19,8 +19,19 @@ jobs:
               with:
                 name: Coverage
                 path: coverage.html
-#     build:
-#         needs: test
-#         runs-on: ubuntu-latest
-#         container:
-#             image: golang:alpine
+    build:
+        needs: test
+        runs-on: ubuntu-latest
+        container:
+            image: golang:alpine
+        steps:
+            - uses: actions/checkout@v2
+            - name: Install dependencies
+              run: apk update && apk add make
+            - name: Build
+              run: make build
+            - name: Upload Artifact
+              uses: actions/upload-artifact@v2
+              with:
+                name: kinesis_scaling.zip
+                path: lambda/kinesis_scaling.zip
