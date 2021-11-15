@@ -12,7 +12,7 @@ jobs:
             - name: Run tests
               run: make test
             - name: Create Coverage Artifact
-              run: go tool cover -html=cover.out -o coverage.html
+              run: go tool cover -html=lambda/cover/cover.out -o coverage.html
             - name: Upload Artifact
               uses: actions/upload-artifact@v2
               with:
