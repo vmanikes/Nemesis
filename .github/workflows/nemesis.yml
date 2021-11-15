@@ -25,6 +25,7 @@ jobs:
         container:
             image: golang:alpine
         steps:
+            - uses: actions/checkout@v2
             - name: Install dependencies
               run: apk update && apk add make
             - name: Build
