@@ -27,7 +27,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Install dependencies
-              run: apk update && apk add make
+              run: apk update && apk add make zip
             - name: Build
               run: make build
             - name: Upload Artifact
