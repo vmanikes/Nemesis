@@ -1,0 +1,9 @@
+name: Nemesis
+on: [push]
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        container:
+              image: golang:alpine
+        steps:
+            - uses: actions/checkout@v2
