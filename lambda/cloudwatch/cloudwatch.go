@@ -103,7 +103,6 @@ func (c *Client) UpdateAlarm(ctx context.Context, alarmName, streamName, snsARN 
 		AlarmActions:       []string{snsARN},
 		TreatMissingData:   aws.String("ignore"),
 	}
-	// TODO Add ignore lifecycle with terraform
 
 	metrics := make([]types.MetricDataQuery, 0)
 

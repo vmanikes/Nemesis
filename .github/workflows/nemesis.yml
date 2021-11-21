@@ -28,8 +28,3 @@ jobs:
               run: apk update && apk add make zip
             - name: Build
               run: make build
-            - name: Upload Artifact
-              uses: actions/upload-artifact@v2
-              with:
-                name: kinesis_scaling.zip
-                path: lambda/kinesis_scaling.zip

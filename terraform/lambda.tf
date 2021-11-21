@@ -35,6 +35,6 @@ resource "aws_lambda_function" "nemesis_scaling_function" {
 // TODO Check if zip can be part of terraform module
 data "archive_file" "nemesis_scaling_function_zip" {
   type        = "zip"
-  source_file = "../main"
-  output_path = "../nemesis_${var.kinesis_datastream_name}_scaling.zip"
+  source_file = "./main"
+  output_path = "./nemesis_${var.kinesis_datastream_name}_scaling.zip"
 }
