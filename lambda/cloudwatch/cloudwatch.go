@@ -23,7 +23,6 @@ type Client struct {
 // New creates and initialized the cloudwatch client
 func New(ctx context.Context) (*Client, error) {
 	logger := logging.WithContext(ctx)
-
 	cfg, err := config.LoadDefaultConfig(ctx)
 	if err != nil {
 		logger.Error("unable to load the default config for aws")
