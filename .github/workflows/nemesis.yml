@@ -7,7 +7,7 @@ jobs:
         container:
               image: golang:alpine
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Install dependencies
               run: apk update && apk add make zip
             - name: Run tests
@@ -23,7 +23,7 @@ jobs:
         container:
             image: golang:alpine
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Install dependencies
               run: apk update && apk add make zip
             - name: Build
