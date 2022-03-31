@@ -3,12 +3,12 @@ module github.com/vmanikes/Nemesis
 go 1.17
 
 require (
-	github.com/aws/aws-lambda-go v1.27.0
+	github.com/aws/aws-lambda-go v1.29.0
 	github.com/aws/aws-sdk-go-v2 v1.11.0
 	github.com/aws/aws-sdk-go-v2/config v1.9.0
 	github.com/aws/aws-sdk-go-v2/service/cloudwatch v1.11.0
 	github.com/aws/aws-sdk-go-v2/service/kinesis v1.9.0
-	github.com/stretchr/testify v1.7.0
+	github.com/stretchr/testify v1.7.1
 	go.uber.org/zap v1.19.1
 )
 
