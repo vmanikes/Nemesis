@@ -3,7 +3,7 @@ module github.com/vmanikes/Nemesis
 go 1.17
 
 require (
-	github.com/aws/aws-lambda-go v1.29.0
+	github.com/aws/aws-lambda-go v1.35.0
 	github.com/aws/aws-sdk-go-v2 v1.16.14
 	github.com/aws/aws-sdk-go-v2/config v1.9.0
 	github.com/aws/aws-sdk-go-v2/service/cloudwatch v1.21.4
