@@ -9,7 +9,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/cloudwatch v1.21.4
 	github.com/aws/aws-sdk-go-v2/service/kinesis v1.15.17
 	github.com/stretchr/testify v1.8.0
-	go.uber.org/zap v1.19.1
+	go.uber.org/zap v1.24.0
 )
 
 require (
